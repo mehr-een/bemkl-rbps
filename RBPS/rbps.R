@@ -7,7 +7,7 @@
 
 rm(list=ls())
 set.seed(109)
-setwd('~/bemkl-rbps/RBPS/')
+setwd('/Users/meali/Downloads/bemkl-rbps-github/RBPS/')
 
 computeOR <-function(x)
 {
@@ -179,13 +179,9 @@ get.top.rules <- function(dNames, nTop)
 load("ProtViews.RData")
 load("DrugResponseTargeted.RData")
 
-rownames(targeted_response) = targeted_agents
-Y = t(targeted_response)
-
-#select X 
-rownames(prot_bin) = colnames(prot)
+Y = targeted_response
 x = prot_bin
-x[x == -1] = 0
+
 
 #### run analysis
 rules = computeOR(x)
@@ -220,7 +216,7 @@ print(top.rules$Alvocidib)
 # No primary target. Though NPM1 feature combinations occur most often, hence selecting the NPM1 feature with highest score.
 
 #### run lapatinib
-ctype = read.table("CellTypes.csv",sep=";",header=F)
+ctype = read.table("CellTypes.csv",sep=";",header=T)
 ct = ctype[,2]
 
 BC = as.numeric(ct == "Breast" | ct == "Ovarian");
