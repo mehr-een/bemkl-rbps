@@ -7,7 +7,7 @@
 
 rm(list=ls())
 set.seed(109)
-setwd('/Users/meali/Downloads/bemkl-rbps-github/RBPS/')
+setwd('/RBPS/')
 
 computeOR <-function(x)
 {
